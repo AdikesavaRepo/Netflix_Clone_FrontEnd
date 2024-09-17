@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Dashboard</title>
+    
+    <style>
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url(https://gtwallpaper.org/sites/default/files/wallpaper/246844/netflix-background-246844-2224740-3441109.png) no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            pointer-events: none;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            padding: 20px;
+            position: relative;
+        }
+
+        nav {
+            margin-left: 170px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .category {
+            margin-bottom: 30px;
+        }
+
+        .category h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .movies-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .movies {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .movie {
+            background-color: #333333;
+            border-radius: 8px;
+            padding: 10px;
+            margin-right: 10px;
+            width: 150px; /* Fixed width for the movie containers */
+            height: 250px; /* Fixed height for the movie containers */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .movie img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the container without distortion */
+            border-radius: 8px;
+            display: block;
+        }
+
+        .movie:last-child {
+            margin-right: 0;
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .slider-button.left {
+            left: 10px;
+        }
+
+        .slider-button.right {
+            right: 10px;
+        }
+
+        footer {
+            background-color: #000000;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/799px-Netflix_2015_logo.svg.png" alt="Netflix Logo" class="logo">
+            <a href="#">Home</a>
+            <a href="#">TV Shows</a>
+            <a href="#">Movies</a>
+            <a href="#">My List</a>
+            <a href="index.html" >Sign Out</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="category">
+            <h2>Trending Now</h2>
+            <div class="movies-container">
+                <button class="slider-button left" onclick="slideLeft('trending-slider')">◀</button>
+                <div class="movies" id="trending-slider">
+                    <div class="movie">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQENm07KOw7e1nycjr45zf0sf8Y1CFBaS3Gow&s" alt="The Witcher">
+                        <p>The Witcher</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK7K_-VpvBtLbAtS2-3pTGQdgE3zXJyYnIlg&s" alt="Money Heist">
+                        <p>Money Heist</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Stranger_Things_%28season_II%29.jpg/220px-Stranger_Things_%28season_II%29.jpg" alt="Stranger Things">
+                        <p>Stranger Things</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDnsOUxIqIP2RIXGAN5FZkYs6zSiNBu5Fraw&s" alt="Ozark">
+                        <p>Ozark</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/The_Umbrella_Academy_season_1.jpg" alt="The Umbrella Academy">
+                        <p>The Umbrella Academy</p>
+                    </div>
+                </div>
+                <button class="slider-button right" onclick="slideRight('trending-slider')">▶</button>
+            </div>
+        </section>
+        
+        <section class="category">
+            <h2>Top Picks for You</h2>
+            <div class="movies-container">
+                <button class="slider-button left" onclick="slideLeft('picks-slider')">◀</button>
+                <div class="movies" id="picks-slider">
+                    <div class="movie">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN0Z9lyXqWMAQpi3VBF1w0nLjYyzw0VJqm2w&s" alt="Bridgerton">
+                        <p>Bridgerton</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BM2EwMmRhMmUtMzBmMS00ZDQ3LTg4OGEtNjlkODk3ZTMxMmJlXkEyXkFqcGdeQXVyMjM5ODk1NDU@._V1_.jpg" alt="The Queen's Gambit">
+                        <p>The Queen's Gambit</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://resizing.flixster.com/aX9Yz5sNV2WpBA5CoENzIl9RbTM=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vUlRUVjI2NTU1OS53ZWJw" alt="The Crown">
+                        <p>The Crown</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlo3wtJzzO-QprVEAHXJ9kB6vEYIZnwfc6Jw&s" alt="Emily in Paris">
+                        <p>Emily in Paris</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://resizing.flixster.com/PYMILH2RwjmJ3uCZyBAEDihOIG4=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvUlRUVjI3OTYxMS53ZWJw" alt="Lucifer">
+                        <p>Lucifer</p>
+                    </div>
+                </div>
+                <button class="slider-button right" onclick="slideRight('picks-slider')">▶</button>
+            </div>
+        </section>
+        
+        <section class="category">
+            <h2>Action Movies</h2>
+            <div class="movies-container">
+                <button class="slider-button left" onclick="slideLeft('action-slider')">◀</button>
+                <div class="movies" id="action-slider">
+                    <div class="movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BYzg4MTY0MjUtNzIxZS00YjQ2LWJhZTUtZTBlOWI5ZGRlNzI2XkEyXkFqcGc@._V1_.jpg" alt="Extraction">
+                        <p>Extraction</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BNzE2ZjQxNjEtNmI2ZS00ZmU0LTg4M2YtYzVhYmRiYWU0YzI1XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="6 Underground">
+                        <p>6 Underground</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9155926_b_v10_au.jpg" alt="Vikings">
+                        <p>Vikings</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BNjcwN2Y0MGEtMjkyYy00YTYxLWFjMWItZTEyZjA1MTJhMjE2XkEyXkFqcGc@._V1_.jpg" alt="The Old Guard">
+                        <p>The Old Guard</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BODU4MzM2MDAxMl5BMl5BanBnXkFtZTgwNDEzNjM0NzM@._V1_.jpg" alt="Triple Frontier">
+                        <p>Triple Frontier</p>
+                    </div>
+                </div>
+                <button class="slider-button right" onclick="slideRight('action-slider')">▶</button>
+            </div>
+        </section>
+
+        <section class="category">
+            <h2>Thriller Movies</h2>
+            <div class="movies-container">
+                <button class="slider-button left" onclick="slideLeft('thriller-slider')">◀</button>
+                <div class="movies" id="thriller-slider">
+                    <div class="movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BZDkzZWQ1YjctNTUyZi00NmM4LTljNTEtNWFiMzQwM2YzNGZiXkEyXkFqcGc@._V1_.jpg" alt="Bird Box">
+                        <p>Bird Box</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://resizing.flixster.com/g81COrwvWE7pqUEIVL0271ZsFT4=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvMjVhYWZjMGMtY2I4MS00ZWE2LWE5NTEtNTVlZDRjMDE3ZGU1LmpwZw==" alt="You">
+                        <p>You</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKPCwSN5IXVuMJmLczEYTxO9xZsnk90aqwiA&s" alt="Vampire Diaries">
+                        <p>Vampire Diaries</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BZTJhMWE4MDUtYTIzYi00M2ZmLThhNjgtZTM2YTY0NDU1NWJhXkEyXkFqcGdeQXVyOTA5NzQ0MDQ@._V1_.jpg" alt="The Night Comes for Us">
+                        <p>The Night Comes for Us</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BOTdlMTg2YWEtMzkxMC00YmNmLThkZGYtYjZmN2UzYzM2ZmRlXkEyXkFqcGdeQXVyMjcxODMwMDk@._V1_.jpg" alt="The Call">
+                        <p>The Call</p>
+                    </div>
+                </div>
+                <button class="slider-button right" onclick="slideRight('thriller-slider')">▶</button>
+            </div>
+        </section>
+
+        <section class="category">
+            <h2>Horror Movies</h2>
+            <div class="movies-container">
+                <button class="slider-button left" onclick="slideLeft('horror-slider')">◀</button>
+                <div class="movies" id="horror-slider">
+                    <div class="movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BOTllMDAwNWUtZGU5Ny00OTViLWE3ODAtYjkyMWZlNWFiMGNiXkEyXkFqcGc@._V1_.jpg" alt="Fear Street">
+                        <p>Fear Street</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMTM3NjA1NDMyMV5BMl5BanBnXkFtZTcwMDQzNDMzOQ@@._V1_.jpg" alt="The Conjuring">
+                        <p>The Conjuring</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMTU4NzA4MDEwNF5BMl5BanBnXkFtZTgwMTQxODYzNjM@._V1_.jpg" alt="The Haunting of Hill House">
+                        <p>The Haunting of Hill House</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://www.tvguide.com/a/img/catalog/provider/1/2/1-9550354333.jpg" alt="Cam">
+                        <p>Cam</p>
+                    </div>
+                    <div class="movie">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIQQGtSyuIbZQmFRdaOzZ2wnutRIsGi0uotA&s" alt="His House">
+                        <p>His House</p>
+                    </div>
+                </div>
+                <button class="slider-button right" onclick="slideRight('horror-slider')">▶</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Netflix Clone. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function slideLeft(sliderId) {
+            const slider = document.getElementById(sliderId);
+            const scrollAmount = 200; // Adjust the scroll amount as needed
+            slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+
+        function slideRight(sliderId) {
+            const slider = document.getElementById(sliderId);
+            const scrollAmount = 200; // Adjust the scroll amount as needed
+            slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

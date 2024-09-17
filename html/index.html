@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+<style>
+.button{
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    border: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align:right;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute; /* Position the button absolutely */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+}
+.button:hover {
+    background-color: darkred;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* Set the background image */
+    background-image: url(https://gtwallpaper.org/sites/default/files/wallpaper/246844/netflix-background-246844-2224740-3441109.png);
+    background-size: cover; /* Make sure the background covers the entire page */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    height: 100vh; /* Ensure the body takes up the full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Positioning context for the logo, button, and dropdown */
+}
+.container {
+    text-align: center; /* Center the text content */
+}
+/* Styling for the Netflix logo */
+.logo {
+    position: absolute; /* Position the logo absolutely */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    width: 100px; /* Adjust size as needed */
+}
+.language-dropdown {
+    position: absolute; /* Position the dropdown absolutely */
+    top: 20px; /* Distance from the top */
+    right: 130px; /* Distance from the right (adjust based on button size) */
+    background-color:rgb(26, 18, 18); /* Background color for dropdown */
+    border: 1px solid #ccc; /* Border for dropdown */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside dropdown */
+    color: white;
+}
+.get-started button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.get-started button:hover {
+    background-color: darkred;
+}
+.get-started input[type="email"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 300px; /* Width of the text box */
+    margin-right: 10px;
+    outline: none; /* Remove the outline */
+}
+.get-started {
+    
+
+    bottom: 200px; /* Distance from the bottom */
+    text-align: center; /* Center the text content */
+    width: 100%; /* Full width */
+}
+.movie-suggestions {
+            
+            bottom: 10px; /* Distance from the bottom */
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .movie-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .movie-card img {
+            width: 100%;
+            height: auto;
+        }
+        .movie-card h3 {
+            font-size: 14px;
+            margin: 10px;
+            color: #fff;
+        }
+
+</style>
+</head>
+<body>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/799px-Netflix_2015_logo.svg.png" alt="Netflix Logo" class="logo">
+
+    <!-- Language Dropdown Menu -->
+<select class="language-dropdown">
+    <option value="en">English</option>
+    <option value="es">Español</option>
+    <option value="fr">Français</option>
+    <option value="de">Deutsch</option>
+    <!-- Add more languages as needed -->
+</select>
+
+    <a href="login.html" class="button">Sign In</a><br\>
+
+<div style="color: white;" class="container">
+    <h1>Unlimited Movies, TV Shows and more</h1><br\>
+    <h4>Watch Anywhere.Cancel Anytime.</h4><br\>
+    <p>ready to watch? Enter your email to create or restart your membership</p>
+</div>
+
+<!-- Get Started Section -->
+<div class="get-started">
+ 
+    <input type="email" placeholder="Enter your email address">
+    <button >Get Started</button>
+</div>
+<!-- Movie Suggestions Section -->
+ <
+    <div class="movie-suggestions">
+        <div class="movie-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMLOSqt4lT44NKOOOcspl_bYw8c4ADFRr7cg&s" alt="Movie 1">
+            <h3>Damsel</h3>
+        </div>
+        <div class="movie-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHcx971RF4QJHZ5r-DaKPww8f4VdRz6Q8_s2zXo_lGdd9aAPgpfyqwVvxw013avtM-q98&usqp=CAU" alt="Movie 2">
+            <h3>Dear Jindagi</h3>
+        </div>
+        <div class="movie-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEDwo35532fv2nWbeicACwzekhbjqTz0USzw&s" alt="Movie 3">
+            <h3>Paradise</h3>
+        </div>
+        <div class="movie-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgD4oflOBmCNMpl6B75WvzloNtzsOPc3hc9A&s" alt="Movie 4">
+            <h3>Missing</h3>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
